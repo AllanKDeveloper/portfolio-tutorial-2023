@@ -9,8 +9,8 @@ export const PageIntroduction = () => {
   return (
     <section className="w-full h-[450px] lg:h-[630px] bg-hero-image bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center px-2">
       <SectionTitle
-        subtitle="projetos"
-        title="Meus Projetos"
+        subtitle="projects"
+        title="My projects"
         className="text-center items-center [&>h3]:text-4xl"
       />
       <motion.div
@@ -21,13 +21,13 @@ export const PageIntroduction = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="text-gray-400 text-center max-w-[640px] my-6 text-sm sm:text-base">
-          Aqui você poderá ver alguns dos trabalhos que eu desenvolvi. Navegue à
-          vontade e explore os projetos para ver como foram criados, as
-          tecnologias utilizadas e as funcionalidades implementadas.
+          Here you can see some of the work I&apos;ve developed. Feel free to
+          browse and explore the projects to see how they were created, the
+          technologies used, and the implemented features.
         </p>
         <Link href="/">
           <HiArrowNarrowLeft size={20} />
-          Voltar para Home
+          Back to Home
         </Link>
       </motion.div>
     </section>

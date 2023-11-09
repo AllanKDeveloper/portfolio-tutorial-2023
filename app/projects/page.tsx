@@ -4,7 +4,7 @@ import { ProjectsPageData } from '../types/page-info'
 import { fetchHygraphQuery } from '../utils/fetch-hygraph-query'
 
 export const metadata = {
-  title: 'Projetos',
+  title: 'Projects',
 }
 
 const getPageData = async (): Promise<ProjectsPageData> => {
@@ -26,7 +26,7 @@ const getPageData = async (): Promise<ProjectsPageData> => {
 
   return fetchHygraphQuery(
     query,
-    1000 * 60 * 60 * 24, // 1 day
+    1000 * 60 * 60 * 24 // 1 day
   )
 }
 

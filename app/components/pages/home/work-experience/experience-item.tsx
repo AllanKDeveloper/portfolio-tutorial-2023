@@ -2,7 +2,7 @@
 
 import { TechBadge } from '@/app/components/tech-badge'
 import { differenceInMonths, differenceInYears, format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { enUS } from 'date-fns/locale'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { WorkExperience } from '@/app/types/work-experience'
@@ -26,10 +26,10 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   const startDate = new Date(experience.startDate)
 
-  const formattedStartDate = format(startDate, 'MMM yyyy', { locale: ptBR })
+  const formattedStartDate = format(startDate, 'MMM yyyy', { locale: enUS })
   const formattedEndDate = endDate
-    ? format(new Date(endDate), 'MMM yyyy', { locale: ptBR })
-    : 'O momento'
+    ? format(new Date(endDate), 'MMM yyyy', { locale: enUS })
+    : 'now'
 
   const end = endDate ? new Date(endDate) : new Date()
 
@@ -39,12 +39,12 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   const formattedDuration =
     years > 0
-      ? `${years} ano${years > 1 ? 's' : ''}${
+      ? `${years} year${years > 1 ? 's' : ''}${
           monthsRemaining > 0
-            ? ` e ${monthsRemaining} mes${monthsRemaining > 1 ? 'es' : ''}`
+            ? ` and ${monthsRemaining} month${monthsRemaining > 1 ? 's' : ''}`
             : ''
         }`
-      : `${months} mes${months > 1 ? 'es' : ''}`
+      : `${months} month${months > 1 ? 's' : ''}`
 
   return (
     <motion.div
@@ -71,7 +71,7 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           <a
             href={companyUrl}
             target="_blank"
-            className="text-gray-500 hover:text-emerald-500 transition-colors"
+            className="text-gray-500 hover:text-amber-500 transition-colors"
             rel="noreferrer"
           >
             @ {companyName}
@@ -85,9 +85,7 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           </div>
         </div>
 
-        <p className="text-gray-400 text-sm mb-3 mt-6 font-semibold">
-          Competência
-        </p>
+        <p className="text-gray-400 text-sm mb-3 mt-6 font-semibold">Skill</p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap lg:max-w-[350px] mb-8">
           {technologies.map((tech, i) => (
             <TechBadge

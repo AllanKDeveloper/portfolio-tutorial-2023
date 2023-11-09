@@ -32,10 +32,12 @@ export const ContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     try {
       await axios.post('/api/contact', data)
-      toast.success('Mensagem enviada com sucesso!')
+      toast.success('Message sent successfully!')
       reset()
     } catch (error) {
-      toast.error('Ocorreu um erro ao enviar a mensagem. Tente novamente.')
+      toast.error(
+        'An error occurred while sending the message. Please try again.'
+      )
     }
   }
 
@@ -46,8 +48,8 @@ export const ContactForm = () => {
     >
       <div className="w-full max-w-[420px] mx-auto">
         <SectionTitle
-          subtitle="contato"
-          title="Vamos trabalhar juntos? Entre em contato"
+          subtitle="contact"
+          title="Get in touch"
           className="items-center text-center"
         />
         <motion.form
@@ -56,29 +58,29 @@ export const ContactForm = () => {
           {...fadeUpAnimation}
         >
           <input
-            placeholder="Nome"
-            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-emerald-600"
+            placeholder="Name"
+            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-amber-600"
             {...register('name')}
           />
           <input
-            placeholder="E-mail"
+            placeholder="Email"
             type="email"
-            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-emerald-600"
+            className="w-full h-14 bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-amber-600"
             {...register('email')}
           />
           <textarea
-            placeholder="Mensagem"
-            className="resize-none w-full h-[138px] bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-emerald-600"
+            placeholder="Message"
+            className="resize-none w-full h-[138px] bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-amber-600"
             {...register('message')}
             maxLength={500}
           />
 
           <div className="relative w-max mx-auto mt-6">
             <Button className="z-[2] relative" disabled={isSubmitting}>
-              Enviar mensagem
+              Send message
               <HiArrowNarrowRight size={18} />
             </Button>
-            <div className="absolute inset-0 bg-emerald-600 blur-2xl opacity-20" />
+            <div className="absolute inset-0 bg-amber-600 blur-2xl opacity-20" />
           </div>
         </motion.form>
       </div>
